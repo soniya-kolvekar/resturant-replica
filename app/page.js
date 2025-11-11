@@ -2,44 +2,122 @@
 import React, { useState, useEffect } from 'react';
 import RestanFooter from './components/RestanFooter/page.js'
 import SafeHydrate from './components/SafeHydrate/page.js';
+import Link from "next/link";
 
 const Navbar = ({ isSticky }) => {
-    
-    const navBgClass = isSticky 
-        ? 'bg-gray-900 dark:bg-gray-900 shadow-lg' 
-        : 'bg-transparent'; 
+  const navBgClass = isSticky
+    ? "bg-gray-900 dark:bg-gray-900 shadow-lg"
+    : "bg-transparent";
+
 
     return (
         <SafeHydrate>
         
-        <div className={`fixed left-0 right-0 z-40 flex justify-center px-0 transition-all duration-300 ${isSticky ? 'top-0' : 'top-[32px]'}`}>
+         <div
+        className={`fixed left-0 right-0 z-40 flex justify-center px-0 transition-all duration-300 ${
+          isSticky ? "top-0" : "top-[38px]"
+        }`}
+      >
+        <div
+          className={`w-full ${navBgClass} transition-colors duration-500 py-8`}>
+            <div className="max-w-[1200px] mx-auto px-6 flex flex-row justify-between items-center relative">
+          <div className="hidden lg:flex flex-row  space-x-12">
+            <a
+              href="/"
+              className="font-medium text-base text-white dark:text-gray-300 hover:text-[#A0845F] transition duration-300"
+            >
+              Home <span className="text-sm">˅</span>
+            </a>
             
-            <div className={`max-w-[1200px] w-full flex flex-row justify-between items-center py-7 px-6 relative ${navBgClass} transition-colors duration-500`}>
-                <div className={`hidden lg:flex flex-row space-x-12 space-y-7 `}>
-                    <a href="/" className={`font-medium text-base transition duration-300 cursor-pointer text-white dark:text-gray-300 hover:text-gray-400 dark:hover:text-gray-500 text-white font-bold dark:text-white`}>Home ˅</a>
-                    <a href="/aboutus" className={'font-medium text-base transition duration-300 cursor-pointer text-white dark:text-gray-300 hover:text-gray-400 dark:hover:text-gray-500'}>Pages ˅</a>
-                    <a href="/menu" className={'font-medium text-base transition duration-300 cursor-pointer text-white dark:text-gray-300 hover:text-gray-400 dark:hover:text-gray-500'}>Menu ˅</a>
-                </div>
-                
-                
-                 <div className="font-['Cormorant Garamond'] font-bold hidden text-3xl cursor-pointer lg:flex items-center absolute left-1/2 transform -translate-x-1/2 translate-y-2">
-                    <img
-                        src="https://restan-nextjs.vercel.app/_next/image?url=%2Fassets%2Fimg%2Flogo-light.png&w=1920&q=75"
-                        className="h-15 brightness-0 invert translate-y-2"
-                        alt="Restan Bistro Logo"
-                    />
-                </div>
+                <div className="relative group">
+                <Link
+                  href="/aboutus"
+                  className="text-white dark:text-gray-300 font-medium text-base hover:text-[#A0845F] transition"
+                >
+                  Pages <span className="text-sm">˅</span>
+                </Link>
 
-                <div className={`hidden lg:flex flex-row space-x-12 space-y-7  ml-auto`}>
-                    <a href="/blog" className={'font-medium text-base transition duration-300 cursor-pointer text-white dark:text-gray-300 hover:text-gray-400 dark:hover:text-gray-500'}>Blog ˅</a>
-                    <a href="/order" className={'font-medium text-base transition duration-300 cursor-pointer text-white dark:text-gray-300 hover:text-gray-400 dark:hover:text-gray-500'}>Shop ˅</a>
-                    <a href="/contactus" className={'font-medium text-base transition duration-300 cursor-pointer text-white dark:text-gray-300 hover:text-gray-400 dark:hover:text-gray-500'}>Contact Us</a>
-                </div>
+                <div
+                  className="absolute left-0 top-8 opacity-0 group-hover:opacity-100 group-hover:visible invisible 
+                             bg-white dark:bg-gray-800 text-gray-900 dark:text-white shadow-xl rounded-lg w-56 py-2 
+                             transition-all duration-300 ease-in-out delay-150"
+                >
+                  <Link href="/aboutus" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700">
+                    About Us
+                  </Link>
+                  <Link href="/chef" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700">
+                    Chef
+                  </Link>
+                  </div>
+                  </div>
+              
+            <div className="relative group">
+                <Link
+                  href="/menu"
+                  className="text-white dark:text-gray-300 font-medium text-base hover:text-[#A0845F] transition"
+                >
+                  Menu <span className="text-sm">˅</span>
+                </Link>
 
-                
-                <div className="lg:hidden w-10 h-10"></div> 
-            </div>
+                <div
+                  className="absolute left-0 top-8 opacity-0 group-hover:opacity-100 group-hover:visible invisible 
+                             bg-white dark:bg-gray-800 text-gray-900 dark:text-white shadow-xl rounded-lg w-48 py-2 
+                             transition-all duration-300 ease-in-out delay-150"
+                >
+                  <Link href="/order" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700">
+                    Menu Style one
+                  </Link>
+                  <Link href="/specials" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700">
+                    Menu Style two
+                  </Link>
+                  </div>
+                  </div>
+          </div>
+          <div className="absolute hidden sm:block  left-1/2 transform -translate-x-1/2 flex items-center justify-center">
+            <img
+              src="https://restan-nextjs.vercel.app/_next/image?url=%2Fassets%2Fimg%2Flogo-light.png&w=1920&q=75"
+              className="h-[50px] brightness-0 invert"
+              alt="Restan Bistro Logo"
+            />
+          </div>
+          <div className="hidden lg:flex flex-row space-x-12 ml-auto">
+           <div className="relative group">
+                <Link
+                  href="/blog"
+                  className="text-white dark:text-gray-300 font-medium text-base hover:text-[#A0845F] transition"
+                >
+                  Blog <span className="text-sm">˅</span>
+                </Link>
+
+                <div
+                  className="absolute left-0 top-8 opacity-0 group-hover:opacity-100 group-hover:visible invisible 
+                             bg-white dark:bg-gray-800 text-gray-900 dark:text-white shadow-xl rounded-lg w-48 py-2 
+                             transition-all duration-300 ease-in-out delay-150"
+                >
+                  <Link href="/order" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700">
+                    Blog Standard
+                  </Link>
+                  <Link href="/specials" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700">
+                    Blog
+                  </Link>
+                  </div>
+                  </div>
+            <a
+              href="/order"
+              className="font-medium text-base text-white dark:text-gray-300 hover:text-[#A0845F] transition duration-300"
+            >
+              Shop <span className="text-sm">˅</span>
+            </a>
+            <a
+              href="/contactus"
+              className="font-medium text-base text-white dark:text-gray-300 hover:text-[#A0845F] transition duration-300"
+            >
+              Contact Us
+            </a>
+          </div>
         </div>
+        </div>
+      </div>
         </SafeHydrate>
             );
 }
@@ -59,6 +137,8 @@ const BookingForm = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         setShowConfirmation(true);
+
+        
         
         
     };
@@ -340,15 +420,20 @@ export default function RestanBistroLanding() {
                    
                     <div className="absolute inset-0 bg-black/60"></div> 
                 </div>
-
                 
-                <div className={`hidden md:flex fixed top-0 left-0 right-0 z-50 flex justify-center w-full py-2 text-s text-bold border-b border-white/20 transition-opacity duration-300 ${isSticky ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}>
-                    <div className="max-w-[1200px] w-full flex justify-between px-6">
-                        <div className="flex space-x-6 text-white/80">
-                            <span>📞 Phone: +4733378901</span>
-                            <span>✉️ Email: food@restan.com</span>
-                        </div>
-                        <span className="text-white/80 hidden sm:block">📍 175 10th Street, Office 375 Berlin, De 21562</span>
+                <div
+                    className={`hidden md:flex fixed top-0 left-0 right-0 z-50 justify-center w-full py-2 text-m border-b border-white/20 transition-opacity duration-300 ${
+                    isSticky ? "opacity-0 pointer-events-none" : "opacity-100"
+                    }`}
+                >
+                    <div className="max-w-[1200px] w-full flex justify-between px-6 text-white/80 items-center">
+                    <div className="flex space-x-6">
+                        <span>📞 Phone: +4733378901</span>
+                        <span>✉️ Email: food@restan.com</span>
+                    </div>
+                    <span className="hidden sm:block">
+                        📍 175 10th Street, Office 375 Berlin, De 21562
+                    </span>
                     </div>
                 </div>
 
@@ -531,63 +616,69 @@ export default function RestanBistroLanding() {
             </div>
             
             
-            <div className="relative w-full py-20 lg:py-0 transition-colors duration-500 rounded-[30px] overflow-hidden" style={{ backgroundColor: '#f1ce74ff' }}>
-                <div className="w-full max-w-[1200px] mx-auto px-4 md:px-6">
-                    <div className="relative flex flex-col lg:flex-row justify-between items-center py-16 lg:min-h-[450px]">
-                        
-                        
-                        <div className="relative order-2 lg:order-1 w-full lg:w-2/5 flex justify-center lg:justify-start z-10 p-4 lg:p-0">
-                            
-                            
-                            <img
-                                src="https://restan-nextjs.vercel.app/_next/image?url=%2Fassets%2Fimg%2Fillustration%2F15.png&w=1080&q=75" 
-                                alt="Main Steak Dish"
-                                className="w-[300px] h-[300px] object-cover rounded-full border-4 border-black/10 shadow-2xl"
-                            />
-                           
-                            <img
-                                src="https://restan-nextjs.vercel.app/_next/image?url=%2Fassets%2Fimg%2Fillustration%2F1.png&w=1080&q=75" 
-                                alt="Salmon Salad"
-                                className="absolute top-0 left-0 w-24 h-24 object-cover rounded-full border-2 border-white shadow-lg lg:left-[-40px]"
-                            />
-                            
-                            <img
-                                src="https://restan-nextjs.vercel.app/_next/image?url=%2Fassets%2Fimg%2Fillustration%2F12.png&w=1080&q=75" 
-                                alt="Burrata Cheese"
-                                className="absolute bottom-[-10px] left-0 w-24 h-24 object-cover rounded-full border-2 border-white shadow-lg lg:left-[-30px]"
-                            />
+         <div
+  className="relative w-full py-30 lg:py-25 transition-colors duration-500 rounded-[30px] overflow-hidden"
+  style={{
+   backgroundImage: "url('https://restan-nextjs.vercel.app/assets/img/shape/4.jpg')",
+  backgroundSize: "cover",
+  backgroundRepeat: "no-repeat",
+  backgroundPosition: "center",
+  }}
+>
+  <div className="w-full max-w-[1200px] mx-auto px-4 md:px-6">
+    <div className="relative flex flex-col lg:flex-row justify-between items-center py-16 lg:min-h-[500px]">
+      <div className="relative order-2 lg:order-1 w-full lg:w-2/5 flex justify-center lg:justify-start z-10 p-4 lg:p-0">
 
-                            <div className="absolute top-1/11 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-36 h-36 flex flex-col items-center justify-center rounded-full border-4 border-dotted border-[#A0845F] bg-white/70 text-gray-900 shadow-lg  backdrop-blur-sm">
-                                <p className="text-sm uppercase font-light">Save</p>
-                                <h4 className="text-4xl font-extrabold tracking-tight">55%</h4>
-                            </div>
-                        </div>
+        <img
+          src="https://restan-nextjs.vercel.app/_next/image?url=%2Fassets%2Fimg%2Fillustration%2F15.png&w=1080&q=75"
+          alt="Main Steak Dish"
+          className="w-[260px] sm:w-[300px] md:w-[340px] lg:w-[320px] h-[260px] sm:h-[300px] md:h-[340px] lg:h-[320px] object-cover rounded-full border-4 border-black/10 shadow-2xl"
+        />
 
+        <img
+          src="https://restan-nextjs.vercel.app/_next/image?url=%2Fassets%2Fimg%2Fillustration%2F1.png&w=1080&q=75"
+          alt="Salmon Salad"
+          className="absolute top-[-40px] left-[10px] sm:left-[-30px] lg:left-[-130px] w-20 sm:w-24 lg:w-35 h-20 sm:h-24 lg:h-35 object-cover rounded-full border-2 border-white shadow-lg"
+        />
 
-                        
-                        <div className="relative order-1 lg:order-2 w-full lg:w-3/5 p-4 lg:p-0 z-10 text-center lg:text-right">
-                            <p className="text-lg font-bold uppercase mb-2 text-gray-900">
-                                TODAY SPECIAL OFFER
-                            </p>
-                            <h2 className="font-['Cormorant Garamond'] font-extrabold text-4xl sm:text-5xl text-gray-900 dark:text-white mb-4 leading-tight">
-                                Explore Irresistible Promotions!
-                            </h2>
-                            <p className="text-gray-700 dark:text-gray-300 text-base lg:text-lg mb-8 max-w-xl lg:ml-auto">
-                                Contrasted dissimilar get joy you instrument out reasonably. Again keeps at no meant stuff. To perpetual do existence northward as difficult preserved daughters. Continued at up to zealously necessary.
-                            </p>
-                            
-                            
-                            <a 
-                                href="./order"
-                                className={`inline-block py-4 px-8 font-bold text-lg rounded-full transition duration-300 text-white shadow-md hover:shadow-lg`}
-                                style={{ backgroundColor: accentColor }}
-                            >
-                                Order Today
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <img
+          src="https://restan-nextjs.vercel.app/_next/image?url=%2Fassets%2Fimg%2Fillustration%2F12.png&w=1080&q=75"
+          alt="Burrata Cheese"
+          className="absolute bottom-[-40px] left-[20px] sm:left-[-20px] lg:left-[-130px] w-20 sm:w-24 lg:w-35 h-20 sm:h-24 lg:h-35 object-cover rounded-full border-2 border-white shadow-lg"
+        />
+
+        <div className="absolute top-[30%] left-[52%] sm:top-[35%] sm:left-[55%] lg:top-[0%] lg:left-[25%] transform -translate-x-1/2 -translate-y-1/2 w-28 sm:w-32 lg:w-33 h-28 sm:h-32 lg:h-33 flex flex-col items-center justify-center rounded-full border-4 border-dotted border-[#A0845F] bg-white/80 text-gray-900 shadow-xl backdrop-blur-sm">
+          <p className="text-xs sm:text-sm uppercase font-light">Save</p>
+          <h4 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight">
+            55%
+          </h4>
+        </div>
+      </div>
+
+      <div className="relative order-1 lg:order-2 w-full lg:w-3/5 p-4 lg:p-0 z-10 text-center lg:text-left dark:text-black">
+        <p className="text-xl sm:text-base font-bold mb-2 text-gray-900">
+          TODAY SPECIAL OFFER
+        </p>
+        <h2 className="font-['Cormorant Garamond'] font-extrabold text-3xl sm:text-4xl md:text-5xl text-gray-900 dark:text-black mb-4 leading-tight">
+          Explore Irresistible Promotions!
+        </h2>
+        <p className="text-gray-700 dark:text-gray-500 text-sm sm:text-base md:text-lg mb-8 max-w-xl ">
+          Contrasted dissimilar get joy you instrument out reasonably. Again
+          keeps at no meant stuff. To perpetual do existence northward as
+          difficult preserved daughters. Continued at up to zealously necessary.
+        </p>
+
+        <a
+          href="./order"
+          className="inline-block py-3 px-8 sm:py-4 sm:px-10 font-bold text-sm sm:text-base lg:text-lg rounded-full text-white shadow-md hover:shadow-lg dark:text-black transition duration-300"
+          style={{ backgroundColor: "#A0845F" }}
+        >
+          Order Today
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
 
              
             <OurSpecialsMenu accentColor={accentColor} accentTextColor={accentTextColor} />
