@@ -123,7 +123,7 @@ const RestanHeader = ({ accentColor = '#A0845F' }) => {
         <nav className={`flex flex-col lg:flex-row lg:items-center text-m text-bold space-y-2 lg:space-y-0 lg:space-x-8 ${isMobileMenuOpen ? 'p-4 lg:p-0' : 'hidden lg:flex'}`}>
             <a href="/" className={`${linkClass} ${textColorClass}`}>Home ∨</a>
             <a href="/aboutus" className={`${linkClass} ${textColorClass}`}>Pages ∨</a>
-            <a href="/order" className={`${linkClass} ${textColorClass}`}>Menu ∨</a>
+            <a href="/menu" className={`${linkClass} ${textColorClass}`}>Menu ∨</a>
             <a href="/blog" className={`${linkClass} ${textColorClass}`}>Blog ∨</a>
             <a href="/order" className={`${linkClass} ${textColorClass}`}>Shop ∨</a>
         </nav>

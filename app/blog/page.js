@@ -37,7 +37,7 @@ const blogData = [
 
 const BlogPage = () => {
   const accentColor = "#A0845F";
- // --- Hero Section ---
+ 
     const HeroSection = () => (
         <div className="relative w-full h-[500px] sm:h-[550px] md:h-[600px] bg-black text-white overflow-hidden">
             <RestanHeader accentColor={accentColor} />

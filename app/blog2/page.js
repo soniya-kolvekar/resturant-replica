@@ -1,17 +1,38 @@
 "use client";
 import React, { useState, useEffect } from 'react';
-
-const ThemeIcon = ({ theme }) => (
-  <span className="text-xl">
-    {theme === 'light' ? '🌙' : '☀️'}
-  </span>
-);
+import RestanHeader from '../components/RestanHeader/page.js';
+import RestanFooter from '../components/RestanFooter/page.js';
 
 const UserIcon = (props) => (
   <svg xmlns="http://www.w3.org/2000/svg" width={props.size || 24} height={props.size || 24} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
     <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>
   </svg>
 );
+
+const accentColor = "#A0845F";
+
+    const HeroSection = () => (
+        <div className="relative w-full h-[500px] sm:h-[550px] md:h-[600px] bg-black text-white overflow-hidden">
+            <RestanHeader accentColor={accentColor} />
+
+            <img
+                src="https://restan-nextjs.vercel.app/assets/img/shape/5.jpg"
+                alt="Assortment of sushi dishes"
+                className="absolute inset-0 w-full h-full object-cover opacity-90"
+            />
+
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-black/30"></div>
+
+            <div className="relative w-full h-full flex flex-col items-center justify-center pt-24 text-center px-4">
+                <h2 className="text-4xl sm:text-5xl md:text-6xl font-['Cormorant Garamond'] font-extrabold mb-4">
+                    Blog Single
+                </h2>
+                <p className="text-sm sm:text-base md:text-lg text-white/70">
+                    <a href="#" className='style={{ color: "#fff"}}'>Home</a> &gt; blog-single
+                </p>
+            </div>
+        </div>
+    );
 
 const STATIC_POST = {
   id: 1,
@@ -50,111 +71,7 @@ New had happen unable uneasy. Drawings can followed improved out sociable not. E
   ]
 };
 
-const Header = ({ toggleTheme, theme }) => (
-  <header className="fixed top-0 left-0 right-0 z-10 bg-black shadow-lg transition-colors duration-300">
-    <div className="bg-black/90 text-white border-b border-gray-800">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center py-4">
-        <div className="flex items-center space-x-8">
-          <h1 className="text-2xl font-extrabold text-white cursor-pointer">
-            <span className="text-yellow-600">RESTAN</span>
-          </h1>
-          <nav className="hidden lg:flex items-center space-x-6 text-sm font-medium">
-            {['Home', 'Pages', 'Menu', 'Blog', 'Shop'].map(item => (
-              <a key={item} href="#" className={item === 'Blog' ? "text-yellow-600" : "hover:text-yellow-600 transition-colors"}>{item}</a>
-            ))}
-          </nav>
-        </div>
-        
-        <div className="flex items-center space-x-4">
-          <button
-            className="p-2 rounded-full text-gray-400 hover:text-white transition duration-150 relative"
-            aria-label="Cart"
-          >
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="8" cy="20" r="1"/><circle cx="17" cy="20" r="1"/><path d="M2.5 2.5h3.0l2.6 12.4h11.2"/><path d="m19 15-1.5-6h-11"/><path d="M9 11h11"/></svg>
-            <span className="absolute -top-1 -right-1 text-xs bg-yellow-600 text-black rounded-full h-4 w-4 flex items-center justify-center font-bold">0</span>
-          </button>
-          <button
-            className="px-6 py-2 bg-yellow-600 text-black font-semibold rounded-lg hover:bg-yellow-700 transition duration-150 shadow-md"
-          >
-            Reservation
-          </button>
-          <button
-            onClick={toggleTheme}
-            className="p-2 rounded-full text-gray-400 hover:text-white hover:bg-gray-800 transition duration-150 hidden sm:inline-flex"
-            aria-label="Toggle Theme"
-          >
-            <ThemeIcon theme={theme} />
-          </button>
-        </div>
-      </div>
-    </div>
 
-    <div className="bg-black text-white pt-24 pb-16">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h2 className="text-4xl font-extrabold mb-2">Blog Single</h2>
-        <p className="text-sm text-gray-400">Home &rsaquo; blog-single</p>
-      </div>
-    </div>
-  </header>
-);
-
-const Footer = () => (
-  <footer className="py-16 bg-black text-white mt-0">
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-8 border-t border-gray-800 pt-8">
-        
-        <div>
-          <h4 className="text-lg font-bold mb-4 text-yellow-600">About Us</h4>
-          <p className="text-sm text-gray-400 mb-4">
-            Continued at zealously necessary is Surrounded sir motionless she end literature.
-          </p>
-          <div className="flex space-x-3">
-            {['Fb', 'Tw', 'Li'].map((icon, index) => (
-              <a key={index} href="#" className="p-2 border border-gray-700 rounded-full hover:bg-yellow-600 hover:text-black transition-colors text-xs font-bold">
-                {icon}
-              </a>
-            ))}
-          </div>
-        </div>
-
-        <div>
-          <h4 className="text-lg font-bold mb-4 text-yellow-600">Explore</h4>
-          <ul className="space-y-2 text-sm text-gray-400">
-            {['Company Profile', 'About', 'Help Center', 'Features', 'Contact'].map(item => (
-              <li key={item}><a href="#" className="hover:text-yellow-600 transition-colors">{item}</a></li>
-            ))}
-          </ul>
-        </div>
-
-        <div>
-          <h4 className="text-lg font-bold mb-4 text-yellow-600">Contact Info</h4>
-          <ul className="space-y-2 text-sm text-gray-400">
-            <li>175 10th Street, Berlin, DE</li>
-            <li>+123 345 98768</li>
-            <li>food@restan.com</li>
-          </ul>
-        </div>
-
-        <div>
-          <h4 className="text-lg font-bold mb-4 text-yellow-600">Newsletter</h4>
-          <p className="text-sm text-gray-400 mb-4">
-            Join our subscribers list to get the latest news and special offers.
-          </p>
-          <div className="flex bg-gray-800 rounded-lg overflow-hidden">
-            <input 
-              type="email" 
-              placeholder="Your Email" 
-              className="w-full bg-transparent p-3 text-sm focus:outline-none placeholder-gray-500"
-            />
-            <button className="px-3 bg-yellow-600 text-black hover:bg-yellow-700 transition-colors">
-              &rarr;
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </footer>
-);
 
 const AuthorBioCard = ({ authorBio }) => (
   <div className="border border-gray-200 dark:border-gray-700 p-6 rounded-xl flex items-center space-x-6 mt-10 bg-gray-50 dark:bg-gray-800">
@@ -311,28 +228,19 @@ const SinglePostPage = ({ post }) => {
 };
 
 export default function Page() {
-  const [theme, setTheme] = useState('light');
-
-  const toggleTheme = () => {
-    setTheme(prevTheme => (prevTheme === 'light' ? 'dark' : 'light'));
-  };
-
-  useEffect(() => {
-    document.documentElement.className = theme;
-  }, [theme]);
-  
+   
   return (
     <div className={`min-h-screen bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 font-sans transition-colors duration-300`}>
-      <Header 
-        toggleTheme={toggleTheme} 
-        theme={theme} 
-      />
+      <HeroSection/>
       
-      <main className="pt-[280px]"> 
+      <main className="pt-[150px]"> 
         <SinglePostPage post={STATIC_POST} />
       </main>
 
-      <Footer />
+      <RestanFooter/>
+      <div className="fixed bottom-8 right-8 w-12 h-12 rounded-full shadow-lg flex items-center justify-center cursor-pointer hover:bg-gray-200 dark:bg-gray-700 dark:hover:bg-gray-600 transition duration-300 text-gray-700 dark:text-white z-50" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+                <span className="text-xl">↑</span>
+            </div>
     </div>
   );
 }

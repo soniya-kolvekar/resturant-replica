@@ -1,6 +1,9 @@
 "use client";
 import React, { useState } from 'react';
 import SafeHydrate from '../components/SafeHydrate/page.js';
+import RestanHeader from '../components/RestanHeader/page.js';
+import RestanFooter from '../components/RestanFooter/page.js';
+
 
 const DATA = {
   breakfast: [
@@ -41,6 +44,31 @@ const DATA = {
     mainImage: "https://restan-nextjs.vercel.app/_next/image?url=%2Fassets%2Fimg%2Fteam%2F4.jpg&w=256&q=75"
   }
 };
+
+const accentColor = "#A0845F";
+
+const HeroSection = () => (
+        <div className="relative w-full h-[500px] sm:h-[550px] md:h-[600px] bg-black text-white overflow-hidden">
+            <RestanHeader accentColor={accentColor} />
+
+            <img
+                src="https://restan-nextjs.vercel.app/assets/img/shape/5.jpg"
+                alt="Assortment of sushi dishes"
+                className="absolute inset-0 w-full h-full object-cover opacity-90"
+            />
+
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-black/30"></div>
+
+            <div className="relative w-full h-full flex flex-col items-center justify-center pt-24 text-center px-4">
+                <h2 className="text-4xl sm:text-5xl md:text-6xl font-['Cormorant Garamond'] font-extrabold mb-4">
+                    Food Menu
+                </h2>
+                <p className="text-sm sm:text-base md:text-lg text-white/70">
+                    <a href="#" className='style={{ color: "#fff"}}'>Home</a> &gt; food-menu
+                </p>
+            </div>
+        </div>
+    );
 
 const FormInput = ({ label, type = 'text', defaultValue, selectOptions = [] }) => (
   <div>
@@ -199,7 +227,7 @@ const FeedbackSection = () => {
       
       <div className="absolute right-0 top-1/2 transform translate-x-1/2 -translate-y-1/2 opacity-10 hidden lg:block">
         <svg xmlns="http://www.w3.org/2000/svg" width="300" height="300" viewBox="0 0 512 512" fill="none">
-          {/* CORRECTED SVG PATH CLOSURE */}
+          
           <path d="M256 0C129.7 0 19 104.7 19 231c0 86.6 46.5 163.5 119.5 204.6C218.8 471.2 256 496 256 496s37.2-24.8 117.5-60.4C446.5 394.5 493 317.6 493 231c0-126.3-110.7-231-237-231z" fill="#D3D3D3"/>
           <path d="M256 16c-112.5 0-204 91.5-204 204 0 76.6 41 144.6 104.7 182.2C217.4 443.4 256 468 256 468s38.6-24.6 103.3-65.8C467 364.6 508 296.6 508 220c0-112.5-91.5-204-204-204z" fill="#C0C0C0"/>
           <path d="M256 16c-79.5 0-144 64.5-144 144 0 45.4 21.1 86.8 54.8 114.7C198.2 338.4 256 374 256 374s57.8-35.6 103.2-109.3C378.9 246.8 400 205.4 400 160c0-79.5-64.5-144-144-144z" fill="#B0B0B0"/>
@@ -312,58 +340,7 @@ const ReservationSection = () => {
   );
 };
 
-const Navbar = () => {
-  const navItems = ['Home', 'Pages', 'Menu', 'Blog', 'Shop'];
-  return (
-    <SafeHydrate>
-    <header className="fixed top-0 left-0 w-full z-20 bg-black shadow-md">
-      <div className="h-8 sm:h-10 w-full bg-[#35250F] flex items-center justify-end px-4 sm:px-8">
-        <div className="text-white text-[10px] sm:text-xs flex space-x-4">
-          <span className="flex items-center mr-4">📞 +4733378901</span>
-          <span className="flex items-center">📧 food@restan.com</span>
-        </div>
-        <div className="flex items-center space-x-2 sm:space-x-4 text-white text-[10px] sm:text-sm ml-auto">
-          <span className="mr-2">🇺🇸 English</span>
-          <div className="flex space-x-2">
-            <a href="#" className="hover:text-amber-300">F</a>
-            <a href="#" className="hover:text-amber-300">T</a>
-            <a href="#" className="hover:text-amber-300">I</a>
-          </div>
-        </div>
-      </div>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2 sm:py-4 bg-black">
-        <div className="flex justify-between items-center">
-          <div className="flex items-center">
-            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#FBBF24" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2a10 10 0 0 1 10 10c0 5.5-4.5 10-10 10S2 17.5 2 12A10 10 0 0 1 12 2z"/><path d="M12 6v6l4 2"/></svg>
-            <span className="text-2xl sm:text-3xl font-serif font-extrabold text-white ml-2">RESTAN</span>
-          </div>
-          <nav className="hidden lg:flex space-x-8 items-center text-white text-base font-medium">
-            {navItems.map((item) => (
-              <a 
-                key={item} 
-                href="#" 
-                className={`py-1 relative group transition-colors ${item === 'Menu' ? 'text-amber-500' : 'hover:text-amber-500'}`}
-              >
-                {item}
-              </a>
-            ))}
-            <button className="p-2 border border-gray-500 rounded-full text-white hover:border-amber-500 transition-colors relative">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="8" cy="20" r="1"/><circle cx="17" cy="20" r="1"/><path d="M2.5 2.5h3.0l2.6 12.4h11.2"/><path d="m19 15-1.5-6h-11"/><path d="M9 11h11"/></svg>
-              <span className="absolute -top-1 -right-1 text-[10px] bg-amber-500 text-black rounded-full h-4 w-4 flex items-center justify-center font-bold">1</span>
-            </button>
-            <div className="text-sm border border-white p-3 hover:bg-[#35250F] hover:text-white transition duration-300 cursor-pointer rounded-lg bg-[#654321] text-white font-semibold">
-              Reservation
-            </div>
-          </nav>
-          <div className="lg:hidden text-white text-xl sm:text-2xl">
-            ☰
-          </div>
-        </div>
-      </div>
-    </header>
-    </SafeHydrate>
-  );
-};
+
 
 export default function App() {
   const theme = 'light';
@@ -371,21 +348,9 @@ export default function App() {
   return (
     <SafeHydrate>
     <div className={`bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 min-h-screen font-sans transition-colors duration-500`}>
-      <Navbar />
+
+      <HeroSection />
       
-      {/* Hero Section: Fixed the vertical alignment overlap */}
-      <div 
-        className="bg-cover bg-center h-[450px] sm:h-[600px] w-full relative pt-[110px]" 
-        style={{ backgroundImage: "url('https://preview.themeforest.net/item/restan-food-restaurant-next-js-template/full_screen_preview/59286405')" }} 
-      >
-        <div className="absolute inset-0 bg-black opacity-50"></div>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex flex-col justify-center items-center text-center relative z-10">
-          <h1 className="text-5xl sm:text-7xl md:text-8xl text-white font-serif font-extrabold leading-tight">
-            Food Menu
-          </h1>
-          <p className="text-sm sm:text-lg text-gray-200 mt-4 ">Home-Food-menu</p>
-        </div>
-      </div>
       
       <ImageMenuSection
         title="Breakfast"
@@ -402,7 +367,7 @@ export default function App() {
         reverse={true} 
       />
       <div 
-        className="w-full bg-cover bg-center py-10 sm:py-20 px-4 mx-auto mt-10 sm:mt-20 flex flex-col lg:flex-row items-center overflow-hidden"
+        className="relative bg-cover bg-center py-10 sm:py-20 px-4 mx-auto mt-10 sm:mt-20 flex flex-col lg:flex-row items-center overflow-hidden"
         style={{ backgroundImage: "url('https://wallpapercave.com/wp/nTwzv3B.jpg')" }}
       >
         <div className="absolute inset-0 bg-black opacity-60"></div>
@@ -434,9 +399,10 @@ export default function App() {
       </div>
       <FeedbackSection />
       <ReservationSection />
-      <footer className="w-full bg-gray-900 dark:bg-black text-gray-400 py-6 sm:py-10 text-center">
-        <p className="text-xs sm:text-base">&copy; {new Date().getFullYear()} Restan Bistro. All rights reserved.</p>
-      </footer>
+      <RestanFooter />
+      <div className="fixed bottom-8 right-8 w-12 h-12 rounded-full shadow-lg flex items-center justify-center cursor-pointer hover:bg-gray-200 dark:bg-gray-700 dark:hover:bg-gray-600 transition duration-300 text-gray-700 dark:text-white z-50" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+                <span className="text-xl">↑</span>
+            </div>
     </div>
     </SafeHydrate>
   );
