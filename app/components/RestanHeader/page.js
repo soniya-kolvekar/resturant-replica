@@ -1,6 +1,7 @@
 "use client";
 import React, { useState, useEffect } from 'react';
 import SafeHydrate from '../SafeHydrate/page';
+import Link from "next/link";
 
 
 const MenuIcon = () => (
@@ -119,15 +120,86 @@ const RestanHeader = ({ accentColor = '#A0845F' }) => {
         </div>
     </div>
 );
+
+
     const NavLinks = () => (
-        <nav className={`flex flex-col lg:flex-row lg:items-center text-m text-bold space-y-2 lg:space-y-0 lg:space-x-8 ${isMobileMenuOpen ? 'p-4 lg:p-0' : 'hidden lg:flex'}`}>
-            <a href="/" className={`${linkClass} ${textColorClass}`}>Home ∨</a>
-            <a href="/aboutus" className={`${linkClass} ${textColorClass}`}>Pages ∨</a>
-            <a href="/menu" className={`${linkClass} ${textColorClass}`}>Menu ∨</a>
-            <a href="/blog" className={`${linkClass} ${textColorClass}`}>Blog ∨</a>
-            <a href="/order" className={`${linkClass} ${textColorClass}`}>Shop ∨</a>
-        </nav>
-    );
+    <nav
+        className={`flex flex-col lg:flex-row lg:items-center text-m font-bold 
+        space-y-2 lg:space-y-0 lg:space-x-8 
+        ${isMobileMenuOpen ? 'p-4 lg:p-0' : 'hidden lg:flex'}`}
+    >
+
+        <Link href="/" className={`${linkClass} ${textColorClass}`}>
+            Home <span className="text-sm">˅</span>
+        </Link>
+
+        <div className="relative group">
+            <Link href="/aboutus" className={`${linkClass} ${textColorClass}`}>
+                Pages <span className="text-sm">˅</span>
+            </Link>
+
+            <div
+                className="absolute left-0 top-8 opacity-0 invisible group-hover:opacity-100 group-hover:visible
+                bg-white dark:bg-gray-800 text-gray-900 dark:text-white shadow-xl rounded-lg w-56 py-2
+                transition-all duration-300 ease-in-out"
+            >
+                <Link href="/aboutus" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700">
+                    About Us
+                </Link>
+                <Link href="/chef" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700">
+                    Chef
+                </Link>
+            </div>
+        </div>
+
+        <div className="relative group">
+            <Link href="/menu" className={`${linkClass} ${textColorClass}`}>
+                Menu <span className="text-sm">˅</span>
+            </Link>
+
+            <div
+                className="absolute left-0 top-8 opacity-0 invisible group-hover:opacity-100 group-hover:visible
+                bg-white dark:bg-gray-800 text-gray-900 dark:text-white shadow-xl rounded-lg w-48 py-2
+                transition-all duration-300 ease-in-out"
+            >
+                <Link href="/menu" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700">
+                    Menu Style One
+                </Link>
+                <Link href="/menu" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700">
+                    Menu Style Two
+                </Link>
+            </div>
+        </div>
+
+        <div className="relative group">
+            <Link href="/blog" className={`${linkClass} ${textColorClass}`}>
+                Blog <span className="text-sm">˅</span>
+            </Link>
+
+            <div
+                className="absolute left-0 top-8 opacity-0 invisible group-hover:opacity-100 group-hover:visible
+                bg-white dark:bg-gray-800 text-gray-900 dark:text-white shadow-xl rounded-lg w-48 py-2
+                transition-all duration-300 ease-in-out"
+            >
+                <Link href="/blog" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700">
+                    Blog Standard
+                </Link>
+                <Link href="/blog2" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700">
+                    Blog Single
+                </Link>
+            </div>
+        </div>
+
+        <Link href="/order" className={`${linkClass} ${textColorClass}`}>
+            Shop <span className="text-sm">˅</span>
+        </Link>
+
+        <Link href="/contactus" className={`${linkClass} ${textColorClass}`}>
+            Contact Us
+        </Link>
+    </nav>
+);
+
 
     return (
         <SafeHydrate>
