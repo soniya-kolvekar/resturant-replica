@@ -618,7 +618,7 @@ export default function RestanBistroLanding() {
             
             
          <div
-  className="relative w-full py-30 lg:py-25 transition-colors duration-500 rounded-[30px] overflow-hidden"
+  className="relative w-[1350px] mx-[90px] py-30 lg:py-25 transition-colors duration-500 rounded-[30px] overflow-hidden"
   style={{
    backgroundImage: "url('https://restan-nextjs.vercel.app/assets/img/shape/4.jpg')",
   backgroundSize: "cover",
