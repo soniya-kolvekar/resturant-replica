@@ -3,12 +3,13 @@ import React from "react";
 
 const OpeningHoursSection = () => {
     return (
-        <div className="relative w-full py-20 bg-white dark:bg-black transition-colors duration-500 mt-20 md:mt-28">
+        <div className="hidden md:block relative w-full py-20 bg-white dark:bg-black transition-colors duration-500 mt-20 md:mt-28">
 
-            <div className="relative max-w-[1250px] mx-auto px-4 md:px-6">
+            <div className=" relative max-w-[1250px] mx-auto px-4 md:px-6">
 
                 
-                <div className="
+                <div className=" 
+                
                     absolute top-[-110] left-1/4 -translate-x-1/2 
                     text-black/10 dark:text-white/10
                     font-extrabold 
@@ -34,7 +35,7 @@ const OpeningHoursSection = () => {
 
                     <div
                         className="
-                            absolute 
+                             absolute 
                             right-0 top-1/2 lg:top-[-90px] 
                             lg:-translate-y-0 
                             -translate-y-1/2
