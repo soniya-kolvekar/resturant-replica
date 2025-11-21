@@ -194,9 +194,7 @@ const RestanHeader = ({ accentColor = '#A0845F' }) => {
             Shop <span className="text-sm">˅</span>
         </Link>
 
-        <Link href="/contactus" className={`${linkClass} ${textColorClass}`}>
-            Contact Us
-        </Link>
+        
     </nav>
 );
 
