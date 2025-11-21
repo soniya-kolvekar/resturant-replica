@@ -1,10 +1,8 @@
 "use client";
-import React, { useState } from 'react';
+import React from 'react';
 import SafeHydrate from '../components/SafeHydrate/page.js';
 import RestanHeader from '../components/RestanHeader/page.js';
 import RestanFooter from '../components/RestanFooter/page.js';
-
-
 const DATA = {
   breakfast: [
     { id: 1, title: "Chicken Alfredo", p: "Ricotta / Goat Cheese / Beetroot", img: "https://restan-nextjs.vercel.app/_next/image?url=%2Fassets%2Fimg%2Ffood%2F1.jpg&w=256&q=75", rateHalf: "$20", rateFull: "$40", extra: "Free Drinks" },
@@ -44,366 +42,231 @@ const DATA = {
     mainImage: "https://restan-nextjs.vercel.app/_next/image?url=%2Fassets%2Fimg%2Fteam%2F4.jpg&w=256&q=75"
   }
 };
-
 const accentColor = "#A0845F";
-
 const HeroSection = () => (
-        <div className="relative w-full h-[500px] sm:h-[550px] md:h-[600px] bg-black text-white overflow-hidden">
-            <RestanHeader accentColor={accentColor} />
-
-            <img
-                src="https://restan-nextjs.vercel.app/assets/img/shape/5.jpg"
-                alt="Assortment of sushi dishes"
-                className="absolute inset-0 w-full h-full object-cover opacity-90"
-            />
-
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-black/30"></div>
-
-            <div className="relative w-full h-full flex flex-col items-center justify-center pt-24 text-center px-4">
-                <h2 className="text-4xl sm:text-5xl md:text-6xl font-['Cormorant Garamond'] font-extrabold mb-4">
-                    Food Menu
-                </h2>
-                <p className="text-sm sm:text-base md:text-lg text-white/70">
-                    <a href="#" className='style={{ color: "#fff"}}'>Home</a> &gt; food-menu
-                </p>
-            </div>
-        </div>
-    );
-
-const FormInput = ({ label, type = 'text', defaultValue, selectOptions = [] }) => (
-  <div>
-    <label className="block text-sm font-medium text-gray-400">{label}</label>
-    {selectOptions.length > 0 ? (
-      <select 
-        defaultValue={defaultValue} 
-        className="mt-1 block w-full px-4 py-3 bg-[#242424] border border-gray-700 rounded-lg text-white focus:ring-amber-500 focus:border-amber-500 appearance-none text-base"
-      >
-        {selectOptions.map(option => (
-          <option key={option} className="text-black bg-white">{option}</option>
-        ))}
-      </select>
-    ) : (
-      <div className="relative">
-        <input 
-          type={type} 
-          defaultValue={defaultValue} 
-          className="mt-1 block w-full px-4 py-3 bg-[#242424] border border-gray-700 rounded-lg text-white focus:ring-amber-500 focus:border-amber-500 text-base"
-        />
-        {type === 'date' && <span className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500">📅</span>}
+  <div className="relative w-full h-[400px] md:h-[600px] bg-black text-white overflow-hidden">
+    <RestanHeader accentColor={accentColor} />
+    <img
+      src="https://restan-nextjs.vercel.app/assets/img/shape/5.jpg"
+      alt="Background"
+      className="absolute inset-0 w-full h-full object-cover opacity-80"
+    />
+    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/30"></div>
+    <div className="relative w-full h-full flex flex-col items-center justify-center pt-20 px-4 text-center">
+      <h2 className="text-4xl md:text-6xl lg:text-7xl font-['Cormorant_Garamond'] font-extrabold mb-4 tracking-tight">
+        Food Menu
+      </h2>
+      <div className="flex items-center gap-2 text-sm md:text-lg text-white/80 font-light tracking-wide">
+        <a href="/" className='hover:text-[#A0845F] transition-colors'>Home</a> 
+        <span>&gt;</span> 
+        <span>Food Menu</span>
       </div>
-    )}
+    </div>
   </div>
 );
-
-const MenuCard = ({ item }) => {
-  const priceDisplay = (
-    <div className="flex space-x-2 text-base sm:text-lg font-bold text-amber-700 dark:text-amber-500 min-w-[90px] justify-end">
-      <span className="w-[45px] text-right">{item.rateHalf || item.rate}</span>
-      <span className="w-[45px] text-right text-gray-500 dark:text-gray-400">{item.rateFull || (item.rate && '—')}</span>
-    </div>
-  );
-  const renderLine = () => (
-    <span className="flex-grow mx-2 h-px border-t border-dashed border-gray-300 dark:border-gray-600 self-center hidden sm:inline-block"></span>
-  );
-  return (
-    <SafeHydrate>
-    <div className="flex items-start space-x-3 mb-5 pb-3 border-b border-gray-100 dark:border-gray-800">
-      <img 
-        className="rounded-full h-14 w-14 sm:h-16 sm:w-16 object-cover flex-shrink-0 shadow-md" 
-        src={item.img} 
-        alt={item.title} 
-        onError={(e) => { e.target.onerror = null; e.target.src = "https://placehold.co/64x64/333333/FFFFFF?text=FOOD"; }}
-      />
-      <div className="flex flex-col flex-grow">
-        <div className="flex w-full items-end justify-between">
-          <h3 className="text-base sm:text-lg font-semibold text-gray-900 dark:text-white flex-shrink-0 whitespace-nowrap">{item.title}</h3>
-          {renderLine()}
-          {priceDisplay}
+const MenuCard = ({ item }) => (
+  <div className="flex items-start gap-4 mb-6 pb-4 border-b border-dashed border-gray-200 dark:border-gray-800 last:border-0 w-full">
+    <img
+      className="rounded-full h-16 w-16 sm:h-20 sm:w-20 object-cover flex-shrink-0 shadow-md border-2 border-white dark:border-[#222]"
+      src={item.img}
+      alt={item.title}
+    />
+    <div className="flex flex-col flex-grow min-w-0">
+      <div className="flex flex-col sm:flex-row sm:items-end justify-between w-full mb-1">
+        <h3 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white truncate font-['Cormorant_Garamond']">
+          {item.title}
+        </h3>
+        <span className="hidden sm:block flex-grow mx-4 mb-1.5 h-px border-t border-dotted border-gray-400/50"></span>
+        <div className="flex items-center gap-3 mt-1 sm:mt-0">
+          <span className="text-base sm:text-lg font-bold text-[#A0845F]">{item.rateHalf}</span>
+          <span className="text-sm sm:text-base text-gray-400 line-through decoration-gray-400/50">{item.rateFull}</span>
         </div>
-        <div className="flex w-full justify-between">
-          <p className="text-xs text-gray-600 dark:text-gray-400 sm:text-sm mt-1">{item.p}</p>
-          {item.extra && <p className="text-amber-700 dark:text-amber-500 text-[10px] sm:text-xs mt-1 whitespace-nowrap hidden sm:block">{item.extra}</p>}
-        </div>
+      </div>
+      <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-1 sm:gap-4">
+        <p className="text-xs sm:text-sm text-gray-500 dark:text-gray-400 line-clamp-1">{item.p}</p>
+        {item.extra && (
+          <span className="inline-block bg-[#A0845F]/10 text-[#A0845F] text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider w-fit">
+            {item.extra}
+          </span>
+        )}
       </div>
     </div>
-    </SafeHydrate>
-  );
-};
-
-const ImageMenuSection = ({ title, subtitle, items, imageSrc, reverse = false }) => {
-  const flexOrder = reverse ? 'lg:flex-row-reverse' : 'lg:flex-row';
-
-  return (
-    <SafeHydrate>
-    <div className={`max-w-6xl mx-auto py-10 sm:py-20 px-4 flex flex-col ${flexOrder} items-start justify-center`}>
-      <div className={`w-full lg:w-1/3 mb-10 relative self-stretch ${reverse ? 'lg:ml-10' : 'lg:mr-10'}`}>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 hex-menu-label shadow-xl bg-amber-800 text-white p-6 text-center">
-          <p className="text-3xl sm:text-4xl font-serif">Menu</p>
-          <p className="text-xs sm:text-sm">{subtitle}</p>
+  </div>
+);
+const ImageMenuSection = ({ title, subtitle, items, imageSrc, reverse = false }) => (
+  <div className={`max-w-7xl mx-auto py-12 sm:py-20 px-4 sm:px-6 flex flex-col ${reverse ? 'lg:flex-row-reverse' : 'lg:flex-row'} gap-10 lg:gap-16 items-center`}>
+    <div className="w-full lg:w-5/12 relative flex justify-center">
+      <div className="relative w-full max-w-[400px] lg:max-w-full aspect-[4/5]">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20 w-32 h-32 sm:w-40 sm:h-40 flex flex-col justify-center items-center bg-[#A0845F] text-white text-center shadow-2xl"
+             style={{ clipPath: "polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)" }}>
+          <p className="text-2xl sm:text-4xl font-['Cormorant_Garamond'] font-bold leading-none">Menu</p>
+          <p className="text-[10px] sm:text-xs uppercase tracking-[0.2em] mt-1">{subtitle}</p>
         </div>
-        <div className="relative w-full h-[300px] sm:h-[400px] overflow-hidden rounded-lg shadow-xl">
-          <img 
-            src={imageSrc} 
-            alt={`${title} Display`} 
-            className="w-full h-full object-cover"
-            onError={(e) => { e.target.onerror = null; e.target.src = "https://placehold.co/400x400/8B4513/FFFFFF?text=Food+Display"; }}
-          />
+        <div className="w-full h-full rounded-2xl overflow-hidden shadow-xl relative bg-gray-200 dark:bg-[#111]">
+           <div className="absolute inset-0 bg-black/10 z-10"></div>
+           <img src={imageSrc} alt={title} className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-700" />
         </div>
       </div>
-      <div className="w-full lg:w-2/3 relative"> 
-        <div className="flex justify-end space-x-2 text-xs sm:text-sm font-semibold text-gray-700 dark:text-gray-300 mb-4 pr-3">
-          <div className="w-[45px] text-right">Half</div>
-          <div className="w-[45px] text-right">Full</div>
-        </div>
-        <div className="space-y-4">
-          {items.map(item => (
-            <MenuCard key={item.id} item={item} />
-          ))}
-        </div>
-      </div>
-      <style js="true">{`
-        .hex-menu-label {
-          clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-          width: 130px; 
-          height: 130px; 
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-          z-index: 10;
-        }
-        @media (min-width: 640px) {
-          .hex-menu-label {
-            width: 150px;
-            height: 150px;
-          }
-        }
-      `}</style>
     </div>
-    </SafeHydrate>
-  );
-};
-
-const MenuSection = ({ mainTitle, subTitle, items }) => {
-  return (
-    <SafeHydrate>
-    <div className="p-4 bg-white dark:bg-gray-800 rounded-lg shadow-xl">
-      <div className="flex items-center justify-center mb-2">
-        <span className="text-amber-700 dark:text-amber-500 text-xs">««««««</span>
-        <h3 className="text-[10px] font-light tracking-widest text-gray-500 dark:text-gray-400 text-center uppercase mx-2">{subTitle}</h3>
-        <span className="text-amber-700 dark:text-amber-500 text-xs">»»»»»»</span>
+    <div className="w-full lg:w-7/12">
+      <div className="flex justify-end space-x-4 text-[10px] sm:text-xs font-bold text-gray-400 dark:text-gray-500 mb-6 uppercase tracking-widest border-b border-gray-200 dark:border-gray-800 pb-2">
+        <span className="w-[45px] text-right">Half</span>
+        <span className="w-[45px] text-right">Full</span>
       </div>
-      <h2 className="text-3xl sm:text-4xl font-bold text-center mb-8 sm:mb-10 text-gray-900 dark:text-white font-serif">{mainTitle}</h2>
-      <div className="flex justify-end space-x-2 text-xs sm:text-sm font-semibold text-gray-700 dark:text-gray-300 mb-4 pr-3">
-        <div className="w-[45px] text-right">Half</div>
-        <div className="w-[45px] text-right">Full</div>
+      <div className="flex flex-col">
+        {items.map(item => <MenuCard key={item.id} item={item} />)}
       </div>
-      {items.map((item) => (
-        <MenuCard key={item.id} item={item} />
-      ))}
     </div>
-    </SafeHydrate>
-  );
-};
-
+  </div>
+);
+const MenuSection = ({ mainTitle, subTitle, items }) => (
+  <div className="p-6 sm:p-8 bg-white dark:bg-[#121212] rounded-2xl shadow-xl border border-gray-100 dark:border-gray-800 h-full">
+    <div className="text-center mb-8">
+      <div className="flex items-center justify-center gap-2 mb-2 text-[#A0845F]">
+        <span className="text-lg">❖</span>
+        <h3 className="text-xs font-bold tracking-[0.2em] uppercase">{subTitle}</h3>
+        <span className="text-lg">❖</span>
+      </div>
+      <h2 className="text-3xl font-bold text-gray-900 dark:text-white font-['Cormorant_Garamond']">{mainTitle}</h2>
+    </div>
+    <div className="space-y-2">
+      {items.map((item) => <MenuCard key={item.id} item={item} />)}
+    </div>
+  </div>
+);
 const FeedbackSection = () => {
   const feedback = DATA.feedback;
-  const renderStars = () => {
-    return Array(feedback.rating).fill().map((_, i) => (
-      <span key={i} className="text-amber-500 text-lg sm:text-xl">★</span> 
-    ));
-  };
   return (
-    <SafeHydrate>
-    <div className="max-w-7xl mx-auto py-10 sm:py-20 px-4 bg-gray-50 dark:bg-gray-800 relative overflow-hidden">
-      <div className="text-center mb-10 sm:mb-16">
-        <div className="flex items-center justify-center mb-2">
-          <span className="text-amber-700 dark:text-amber-500 text-xs">««««««</span>
-          <h3 className="text-[10px] font-light tracking-widest text-gray-500 dark:text-gray-400 text-center uppercase mx-2">HAPPY CUSTOMERS</h3>
-          <span className="text-amber-700 dark:text-amber-500 text-xs">»»»»»»</span>
-        </div>
-        <h2 className="text-4xl sm:text-5xl font-extrabold text-gray-900 dark:text-white font-serif">Our Customers Feedback</h2>
-      </div>
-      
-      <div className="absolute right-0 top-1/2 transform translate-x-1/2 -translate-y-1/2 opacity-10 hidden lg:block">
-        <svg xmlns="http://www.w3.org/2000/svg" width="300" height="300" viewBox="0 0 512 512" fill="none">
-          
-          <path d="M256 0C129.7 0 19 104.7 19 231c0 86.6 46.5 163.5 119.5 204.6C218.8 471.2 256 496 256 496s37.2-24.8 117.5-60.4C446.5 394.5 493 317.6 493 231c0-126.3-110.7-231-237-231z" fill="#D3D3D3"/>
-          <path d="M256 16c-112.5 0-204 91.5-204 204 0 76.6 41 144.6 104.7 182.2C217.4 443.4 256 468 256 468s38.6-24.6 103.3-65.8C467 364.6 508 296.6 508 220c0-112.5-91.5-204-204-204z" fill="#C0C0C0"/>
-          <path d="M256 16c-79.5 0-144 64.5-144 144 0 45.4 21.1 86.8 54.8 114.7C198.2 338.4 256 374 256 374s57.8-35.6 103.2-109.3C378.9 246.8 400 205.4 400 160c0-79.5-64.5-144-144-144z" fill="#B0B0B0"/>
-        </svg>
-      </div>
-
-      <div className="flex flex-col lg:flex-row items-center justify-center lg:space-x-12 relative z-10">
-        <div className="relative mb-10 lg:mb-0 w-full max-w-xs sm:max-w-sm">
-          <div className="hex-mask overflow-hidden shadow-2xl">
-            <img 
-              src={feedback.mainImage} 
-              alt="Customer" 
-              className="w-full h-full object-cover transform scale-105" 
-              onError={(e) => { e.target.onerror = null; e.target.src = "https://placehold.co/300x350/C0C0C0/333333?text=Reviewer+Image"; }}
-            />
-          </div>
-          {feedback.people.map((img, index) => (
-            <img 
-              key={index}
-              src={img} 
-              alt={`Reviewer ${index + 1}`} 
-              className={`rounded-full border-4 border-white dark:border-gray-800 object-cover absolute shadow-lg transition-transform hover:scale-110
-                ${index === 0 ? 'top-10 left-3/4 transform -translate-x-1/2 -translate-y-1/2 h-16 w-16' : ''}
-                ${index === 1 ? 'top-1/2 right-0 transform translate-x-1/2 -translate-y-1/2 h-14 w-14' : ''}
-                ${index === 2 ? 'bottom-0 left-1/4 transform -translate-x-1/2 translate-y-1/2 h-16 w-16' : ''}
-              `}
-              onError={(e) => { e.target.onerror = null; e.target.src = "https://placehold.co/60x60/808080/FFFFFF?text=P"; }}
-            />
-          ))}
-          <div className="absolute top-10 left-10 opacity-10 text-[100px] sm:text-[150px] dark:text-gray-600 text-gray-400 font-serif -z-10 hidden sm:block">🍔</div>
-        </div>
-        <div className="lg:w-1/2 p-4 sm:p-6 md:p-10 bg-white dark:bg-gray-900 rounded-lg shadow-2xl">
-          <div className="flex items-center mb-2">
-            {renderStars()}
-            <span className="text-gray-500 text-xs sm:text-sm ml-4">(5/5)</span>
-          </div>
-          <h3 className="text-2xl sm:text-4xl font-bold mb-4 text-gray-900 dark:text-white font-serif">{feedback.title}</h3>
-          <p className="text-sm sm:text-lg italic text-gray-700 dark:text-gray-300 mb-6 sm:mb-8 leading-relaxed">
-            &ldquo;{feedback.quote}&rdquo;
-          </p>
-          <hr className="border-t-2 border-amber-700 dark:border-amber-500 w-1/4 mb-4" />
-          <div className='flex justify-between items-center'>
-            <div>
-              <p className="text-lg sm:text-xl font-semibold text-gray-900 dark:text-white">{feedback.author}</p>
-              <p className="text-xs sm:text-sm uppercase tracking-wider text-amber-700 dark:text-amber-500">{feedback.role}</p>
+    <div className="relative w-full py-20 lg:py-32 bg-[#fcfbf9] dark:bg-[#0b0b0b] overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-20 items-center">
+        <div className="relative w-full flex justify-center lg:justify-start order-1">
+          <div className="relative w-[320px] h-[320px] sm:w-[450px] sm:h-[450px] lg:w-[500px] lg:h-[500px]">
+            <div className="w-full h-full overflow-hidden shadow-2xl drop-shadow-2xl" 
+                 style={{ clipPath: "polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%)" }}>
+              <img src={feedback.mainImage} alt="Main Customer" className="w-full h-full object-cover transform scale-110" />
             </div>
-            <div className="flex space-x-1">
-              <span className="h-2 w-2 rounded-full bg-amber-700 dark:bg-amber-500"></span>
-              <span className="h-2 w-2 rounded-full bg-gray-400"></span>
-              <span className="h-2 w-2 rounded-full bg-gray-400"></span>
+            <div className="absolute top-[5%] right-[15%] sm:right-[18%] w-16 h-16 sm:w-20 sm:h-20 rounded-full border-[3px] border-white dark:border-[#0b0b0b] overflow-hidden shadow-lg z-20 bg-gray-200">
+              <img src={feedback.people[0]} alt="User 1" className="w-full h-full object-cover" />
+            </div>
+            <div className="absolute top-1/2 -translate-y-1/2 -right-2 sm:-right-4 w-20 h-20 sm:w-24 sm:h-24 rounded-full border-[3px] border-white dark:border-[#0b0b0b] overflow-hidden shadow-xl z-20 bg-gray-200">
+              <img src={feedback.people[1]} alt="User 2" className="w-full h-full object-cover" />
+            </div>
+            <div className="absolute bottom-[5%] right-[15%] sm:right-[18%] w-16 h-16 sm:w-20 sm:h-20 rounded-full border-[3px] border-white dark:border-[#0b0b0b] overflow-hidden shadow-lg z-20 bg-gray-200">
+              <img src={feedback.people[2]} alt="User 3" className="w-full h-full object-cover" />
+            </div>
+          </div>
+        </div>
+        <div className="relative z-10 order-2 text-center lg:text-left">
+          <div className="flex justify-center lg:justify-start space-x-1 text-[#FFA41C] text-lg mb-6">
+            {[...Array(5)].map((_, i) => <span key={i}>★</span>)}
+            <span className="text-gray-400 text-sm ml-2 font-sans pt-1 font-medium">(5/5 Reviews)</span>
+          </div>
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-['Cormorant_Garamond'] font-bold text-gray-900 dark:text-white mb-8 leading-tight">The Best Food Ever</h2>
+          <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-400 leading-relaxed italic mb-12">“{feedback.quote}”</p>
+          <div className="flex flex-col sm:flex-row items-center justify-between border-t border-gray-200 dark:border-gray-800 pt-8 gap-6">
+            <div className="text-center lg:text-left">
+              <h4 className="text-2xl font-bold text-gray-900 dark:text-white font-['Cormorant_Garamond']">{feedback.author}</h4>
+              <p className="text-xs font-bold text-[#A0845F] uppercase tracking-[0.2em] mt-2">{feedback.role}</p>
+            </div>
+            <div className="flex space-x-3">
+              <span className="w-3 h-3 rounded-full border-2 border-[#A0845F] flex items-center justify-center"><span className="w-1.5 h-1.5 rounded-full bg-[#A0845F]"></span></span>
+              <span className="w-2 h-2 rounded-full bg-gray-300 dark:bg-gray-700"></span>
+              <span className="w-2 h-2 rounded-full bg-gray-300 dark:bg-gray-700"></span>
             </div>
           </div>
         </div>
       </div>
-      <style jsx="true">{`
-        .hex-mask {
-          clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-          width: 280px; 
-          height: 320px;
-          margin: 0 auto;
-        }
-        @media (min-width: 640px) {
-          .hex-mask {
-            width: 300px;
-            height: 350px;
-          }
-        }
-      `}</style>
     </div>
-    </SafeHydrate>
   );
 };
-
-const ReservationSection = () => {
-  return (
-    <SafeHydrate>
-    <div 
-      className="w-full py-10 sm:py-20 px-4 bg-cover bg-center"
-      style={{ backgroundImage: "url('https://wallpapercave.com/wp/nTwzv3B.jpg')" }}
-    >
-      <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between">
-        <div className="lg:w-1/2 p-4 text-white mb-8 lg:mb-0">
-          <p className="text-sm tracking-widest uppercase text-amber-500 mb-2">RESERVATION ••••</p>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold mb-6">Reservation Your Favorite Private Table</h2>
-          <p className="text-base sm:text-lg mb-8 leading-relaxed text-gray-300">
-            A relaxing and pleasant atmosphere, good jazz, dinner, and cocktails. The Patio Time Bar opens in the center of Florence. The only bar inspired by the 1960s, it will give you an experience that you'll have a hard time forgetting.
-          </p>
-          <div className="flex space-x-6 sm:space-x-8 text-lg sm:text-xl font-semibold">
-            <div className="hover:text-amber-500 cursor-pointer transition">Launch Menu<p className="text-xs sm:text-sm font-normal text-gray-400">30+ Items</p></div>
-            <div className="hover:text-amber-500 cursor-pointer transition">Dinner Menu<p className="text-xs sm:text-sm font-normal text-gray-400">50+ Items</p></div>
-          </div>
+const ReservationSection = () => (
+  <section className="relative w-full py-20 lg:pt-28 lg:pb-20 bg-[#0a0a0a] text-white overflow-visible z-30">
+    <div className="absolute inset-0 w-full h-full opacity-40" style={{ backgroundImage: "url('https://th.bing.com/th/id/R.4c44ffb3128ea2386e94675af604a8e4?rik=rh4H8KfpM7jGNg&riu=http%3a%2f%2fwww.pixelstalk.net%2fwp-content%2fuploads%2f2016%2f05%2fBlack-Background-Images.jpg&ehk=GF%2fx2TdurjLr3LDjKtvz4uUtmU48SpF%2f2z3z1mHxg0E%3d&risl=&pid=ImgRaw&r=0')", backgroundSize: 'cover', backgroundPosition: 'center' }}></div>
+    <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <div className="text-center lg:text-left">
+        <div className="flex items-center justify-center lg:justify-start gap-3 text-[#A0845F] mb-4">
+          <span className="text-xs font-bold uppercase tracking-[0.2em]">Reservation</span>
+          <span className="text-lg">━</span>
         </div>
-        <div className="w-full lg:w-1/3 p-6 sm:p-8 bg-[#181818] rounded-xl shadow-[0_0_50px_rgba(0,0,0,0.5)]">
-          <form className="space-y-5 sm:space-y-6">
-            <FormInput label="Phone" type="tel" defaultValue="+7333078901" />
-            <FormInput label="Person" defaultValue="3 Person" selectOptions={['1 Person', '2 Person', '3 Person', '4+ Person']} />
-            <FormInput label="Date" type="date" />
-            <FormInput label="Time" defaultValue="12:00 PM" selectOptions={['12:00 PM', '1:00 PM', '7:00 PM', '8:00 PM']} />
-            <button 
-              type="submit" 
-              className="w-full text-base sm:text-lg font-bold py-3 mt-6 sm:mt-8 rounded-lg bg-amber-700 text-white hover:bg-amber-800 transition duration-300 shadow-md"
-            >
-              Book A Table
-            </button>
+        <h2 className="text-4xl sm:text-5xl md:text-6xl font-['Cormorant_Garamond'] font-medium leading-tight mb-8">Reservation Your Favorite <br className="hidden lg:block"/> Private Table</h2>
+        <p className="text-white-400 text-lg leading-relaxed mb-12 max-w-xl mx-auto lg:mx-0">A relaxing and pleasant atmosphere, good jazz, dinner, and cocktails.</p>
+        <div className="flex flex-col sm:flex-row justify-center lg:justify-start gap-10 sm:gap-16">
+          <div><h4 className="text-2xl font-bold font-['Cormorant_Garamond'] text-white">Launch Menu</h4><p className="text-white-500 text-sm mt-1 font-sans">30+ items</p></div>
+          <div><h4 className="text-2xl font-bold font-['Cormorant_Garamond'] text-white">Dinner Menu</h4><p className="text-white-500 text-sm mt-1 font-sans">50+ items</p></div>
+        </div>
+      </div>
+      <div className="w-full max-w-lg mx-auto lg:ml-auto relative">
+        <div className="bg-[#0b0b0b] p-8 sm:p-10 rounded-[2rem] shadow-2xl border border-white/5 relative lg:-mb-32 z-20">
+          <form className="space-y-6">
+            <div><label className="block text-xs text-gray-400 mb-2 ml-1">Phone</label><input type="tel" defaultValue="+4733378901" className="w-full bg-transparent border border-gray-700 rounded-lg px-5 py-4 text-white focus:border-[#A0845F] focus:ring-0 outline-none transition-colors placeholder-gray-600" /></div>
+            <div>
+              <label className="block text-xs text-gray-400 mb-2 ml-1">Person</label>
+              <div className="relative">
+                <select className="w-full bg-transparent border border-gray-700 rounded-lg px-5 py-4 text-white focus:border-[#A0845F] focus:ring-0 outline-none appearance-none cursor-pointer"><option>3 Person</option><option>2 Person</option><option>4+ Person</option></select>
+                <span className="absolute right-5 top-1/2 -translate-y-1/2 text-gray-500 pointer-events-none text-xs">▼</span>
+              </div>
+            </div>
+            <div>
+              <label className="block text-xs text-gray-400 mb-2 ml-1">Date</label>
+              <div className="relative">
+                <input type="text" placeholder="Date" onFocus={(e) => e.target.type = 'date'} onBlur={(e) => e.target.type = 'text'} className="w-full bg-transparent border border-gray-700 rounded-lg px-5 py-4 text-white focus:border-[#A0845F] focus:ring-0 outline-none appearance-none" />
+                <span className="absolute right-1 top-1 bottom-1 w-12 bg-[#A0845F] rounded-md flex items-center justify-center pointer-events-none text-white shadow-lg">📅</span>
+              </div>
+            </div>
+            <div>
+              <label className="block text-xs text-gray-400 mb-2 ml-1">Time</label>
+              <div className="relative">
+                <select className="w-full bg-transparent border border-gray-700 rounded-lg px-5 py-4 text-white focus:border-[#A0845F] focus:ring-0 outline-none appearance-none cursor-pointer"><option>12:00 PM</option><option>07:00 PM</option></select>
+                <span className="absolute right-5 top-1/2 -translate-y-1/2 text-gray-500 pointer-events-none text-xs">▼</span>
+              </div>
+            </div>
+            <button type="button" className="w-auto px-10 py-4 bg-[#A0845F] hover:bg-[#8d7350] text-white font-bold rounded-lg transition-all mt-6 shadow-lg">Book A Table</button>
           </form>
         </div>
       </div>
     </div>
-    </SafeHydrate>
-  );
-};
-
-
-
-export default function App() {
-  const theme = 'light';
-  
+  </section>
+);
+export default function MenuPage() {
   return (
     <SafeHydrate>
-    <div className={`bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 min-h-screen font-sans transition-colors duration-500`}>
+      <div className="bg-white dark:bg-[#050505] text-gray-900 dark:text-gray-100 min-h-screen font-sans transition-colors duration-500 w-full overflow-x-hidden">
+       <HeroSection />
+      <ImageMenuSection title="Breakfast" subtitle="Breakfast" items={DATA.breakfast} imageSrc="https://th.bing.com/th/id/OIP.XFtqhIH4p9P-5mdfnCy0BAHaJQ?o=7&cb=ucfimgc2rm=3&rs=1&pid=ImgDetMain&o=7&rm=3" reverse={false} />
+        <ImageMenuSection title="Lunch" subtitle="Lunch" items={DATA.lunch} imageSrc="https://i.pinimg.com/736x/10/14/f5/1014f53f156f22a6ec6fa96a9b30c029.jpg" reverse={true} />
 
-      <HeroSection />
-      
-      
-      <ImageMenuSection
-        title="Breakfast"
-        subtitle="Breakfast"
-        items={DATA.breakfast}
-        imageSrc="https://th.bing.com/th/id/OIP.XFtqhIH4p9P-5mdfnCy0BAHaJQ?o=7&cb=ucfimgc2rm=3&rs=1&pid=ImgDetMain&o=7&rm=3"
-        reverse={false} 
-      />
-      <ImageMenuSection
-        title="Lunch"
-        subtitle="Lunch"
-        items={DATA.lunch}
-        imageSrc="https://i.pinimg.com/736x/10/14/f5/1014f53f156f22a6ec6fa96a9b30c029.jpg"
-        reverse={true} 
-      />
-      <div 
-        className="relative bg-cover bg-center py-10 sm:py-20 px-4 mx-auto mt-10 sm:mt-20 flex flex-col lg:flex-row items-center overflow-hidden"
-        style={{ backgroundImage: "url('https://wallpapercave.com/wp/nTwzv3B.jpg')" }}
-      >
-        <div className="absolute inset-0 bg-black opacity-60"></div>
-        <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center relative z-10 w-full">
-          <div className="lg:w-1/2 p-4 flex flex-col justify-center max-w-lg lg:max-w-none mx-auto lg:mx-0 text-center lg:text-left">
-            <h2 className="text-4xl sm:text-6xl text-white font-serif font-semibold mb-4 sm:mb-8">30 MINUTES DELIVERY!</h2>
-            <p className="text-base sm:text-xl text-white mb-8 sm:mb-12 max-w-lg lg:max-w-none">
-              A relaxing and pleasant atmosphere, good jazz, dinner, and cocktails. The Patio Time Bar opens in the center of Florence. The only bar inspired by the 1960s, it will give you an experience that you’ll have a hard time forgetting.
-            </p>
-            <button className="border-2 border-amber-900 p-3 sm:p-4 text-white text-lg sm:text-xl rounded-xl bg-amber-700 hover:bg-black hover:text-white max-w-fit cursor-pointer transition duration-300 flex items-center shadow-lg mx-auto lg:mx-0">
-              🛒 Order Now
-            </button>
-          </div>
-          <div className="flex-shrink-0 w-full lg:w-1/2 flex items-end justify-center lg:justify-end mt-8 lg:mt-0 relative">
-            <img 
-              className="h-72 sm:h-96 lg:h-[450px] w-auto object-contain transform translate-y-8 lg:translate-y-12" 
-              src="https://restan-nextjs.vercel.app/_next/image?url=%2Fassets%2Fimg%2Fillustration%2F11.png&w=750&q=75" 
-              alt="Delivery illustration"
-              onError={(e) => { e.target.onerror = null; e.target.src = "https://restan-nextjs.vercel.app/_next/image?url=%2Fassets%2Fimg%2Fillustration%2F11.png&w=750&q=75"; }}
-            />
-          </div>
-        </div>
-      </div>
-      <div className="max-w-6xl mx-auto my-10 sm:my-20 px-4">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12">
-          <MenuSection mainTitle="Sea Food" subTitle="FRESH FROM OCEAN" items={DATA.seafood} />
-          <MenuSection mainTitle="Beverage" subTitle="DRINKS & WINE" items={DATA.beverage} />
-        </div>
-      </div>
-      <FeedbackSection />
-      <ReservationSection />
-      <RestanFooter />
-      <div className="fixed bottom-8 right-8 w-12 h-12 rounded-full shadow-lg flex items-center justify-center cursor-pointer hover:bg-gray-200 dark:bg-gray-700 dark:hover:bg-gray-600 transition duration-300 text-gray-700 dark:text-white z-50" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-                <span className="text-xl">↑</span>
+        <div className="relative bg-cover bg-center py-20 px-4 mt-16 mb-20 flex flex-col lg:flex-row items-center z-10" style={{ backgroundImage: "url('https://wallpapercave.com/wp/nTwzv3B.jpg')" }}>
+          <div className="absolute inset-0 bg-black/70"></div>
+          <div className="max-w-7xl mx-auto w-full flex flex-col lg:flex-row items-center relative z-10">
+            <div className="w-full lg:w-1/2 flex flex-col justify-center text-center lg:text-left mb-12 lg:mb-0">
+              <h2 className="text-4xl md:text-6xl text-white font-['Cormorant_Garamond'] font-bold mb-6 leading-tight">30 MINUTES <br className="hidden sm:block"/> DELIVERY!</h2>
+              <p className="text-base md:text-xl text-white/90 mb-8 max-w-lg mx-auto lg:mx-0 leading-relaxed font-light">A relaxing and pleasant atmosphere, good jazz, dinner, and cocktails. The Patio Time Bar opens in the center of Florence. The only bar inspired by the 1960s, it will give you a experience that you’ll have a hard time forgetting.</p>
+              <button className="bg-[#A0845F] text-white px-10 py-4 text-lg font-bold hover:bg-white hover:text-black transition duration-300 shadow-2xl mx-auto lg:mx-0">🛒 Order Now</button>
             </div>
-    </div>
+            <div className="w-full lg:w-1/2 flex items-end justify-center lg:justify-end relative">
+              <img 
+                className="h-[300px] md:h-[400px] lg:h-[550px] w-auto object-contain drop-shadow-2xl animate-float lg:-mb-32 lg:-mr-12" 
+                src="https://restan-nextjs.vercel.app/_next/image?url=%2Fassets%2Fimg%2Fillustration%2F11.png&w=750&q=75" 
+                alt="Delivery illustration"
+              />
+            </div>
+          </div>
+        </div>
+<div className="max-w-7xl mx-auto my-20 px-4 sm:px-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16">
+            <MenuSection mainTitle="Sea Food" subTitle="FRESH FROM OCEAN" items={DATA.seafood} />
+            <MenuSection mainTitle="Beverage" subTitle="DRINKS & WINE" items={DATA.beverage} />
+          </div>
+        </div>
+<FeedbackSection />
+        <ReservationSection />
+        <div className="pt-16 lg:pt-48">
+            <RestanFooter />
+        </div>
+      <div className="fixed bottom-8 right-8 w-12 h-12 rounded-full shadow-lg flex items-center justify-center cursor-pointer bg-white hover:bg-[#A0845F] text-black hover:text-white transition duration-300 z-50 border border-gray-200" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+          <span className="text-xl">↑</span>
+        </div>
+      </div>
     </SafeHydrate>
   );
 }
