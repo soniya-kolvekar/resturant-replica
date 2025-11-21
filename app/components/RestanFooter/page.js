@@ -17,15 +17,10 @@ const RestanFooter = ({ accentColor = '#A0845F' }) => {
   return (
     <SafeHydrate>
 
-        
-      {/* OUTER FOOTER WRAPPER */}
-
       <footer className="relative  bg-white pt-50  pb-0 transition-colors duration-500">
 
-        {/* TOP CURVE SECTION (dark background) */}
         <div className="w-full bg-white  ">
 
-          {/* MAIN CONTENT BOX (the one lifted above bottom bar) */}
           <div className="
                 relative z-10 
                 max-w-[1200px] mx-auto px-4 md:px-6 
@@ -41,7 +36,6 @@ const RestanFooter = ({ accentColor = '#A0845F' }) => {
               gap-x-12 gap-y-10 
               py-16 px-6 md:px-10
             ">
-              {/* COLUMN 1 */}
               <div>
                 <h3 className={titleClass}>About Us</h3>
                 <p className="text-m text-white/70 mb-6 leading-relaxed">
@@ -56,7 +50,6 @@ const RestanFooter = ({ accentColor = '#A0845F' }) => {
                 </div>
               </div>
 
-              {/* COLUMN 2 */}
               <div>
                 <h3 className={titleClass}>Explore</h3>
                 <ul className="space-y-3 text-m text-white/70">
@@ -69,7 +62,6 @@ const RestanFooter = ({ accentColor = '#A0845F' }) => {
                 </ul>
               </div>
 
-              {/* COLUMN 3 */}
               <div>
                 <h3 className={titleClass}>Contact Info</h3>
                 <div className="space-y-5 text-m text-white/70">
@@ -98,7 +90,6 @@ const RestanFooter = ({ accentColor = '#A0845F' }) => {
                 </div>
               </div>
 
-              {/* COLUMN 4 */}
               <div>
                 <h3 className={titleClass}>Newsletter</h3>
                 <p className="text-m text-white/70 mb-4">
@@ -127,7 +118,6 @@ const RestanFooter = ({ accentColor = '#A0845F' }) => {
           </div>
         </div>
 
-        {/* BOTTOM COPYRIGHT BAR */}
 <div className="w-full bg-[#0e0e0e] py-8">
               <div className="max-w-[1200px] h-[150px] mx-auto px-4 md:px-6 flex justify-between items-center">
 
