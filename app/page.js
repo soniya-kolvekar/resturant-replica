@@ -638,7 +638,7 @@ export default function RestanBistroLanding() {
             
             
          <div
-  className="relative w-[1350px] mx-[90px] py-30 lg:py-25 transition-colors duration-500 rounded-[30px] overflow-hidden"
+  className="relative hidden md:block w-[1350px] mx-[90px] py-30 lg:py-25 transition-colors duration-500 rounded-[30px] overflow-hidden"
   style={{
    backgroundImage: "url('https://restan-nextjs.vercel.app/assets/img/shape/4.jpg')",
   backgroundSize: "cover",
@@ -705,7 +705,7 @@ export default function RestanBistroLanding() {
             <OurSpecialsMenu accentColor={accentColor} accentTextColor={accentTextColor} />
 
           
-<div className="relative w-full py-20 lg:py-0 bg-white dark:bg-black transition-colors duration-500">
+<div className=" relative w-full py-20 lg:py-0 bg-white dark:bg-black transition-colors duration-500 ">
     <div className="w-full max-w-[1200px] mx-auto px-4 md:px-6">
         <div className="relative flex flex-col lg:flex-row items-center justify-between py-16 lg:min-h-[500px] rounded-[30px] overflow-hidden" 
              style={{ backgroundColor: '#1E1E1E' }}>

@@ -17,9 +17,9 @@ const RestanFooter = ({ accentColor = '#A0845F' }) => {
   return (
     <SafeHydrate>
 
-      <footer className="relative  bg-white pt-50  pb-0 transition-colors duration-500">
+      <footer className="relative dark:bg-black  bg-white pt-50  pb-0 transition-colors duration-500">
 
-        <div className="w-full bg-white  ">
+        <div className="w-full dark:bg-black bg-white  ">
 
           <div className="
                 relative z-10 
@@ -118,7 +118,7 @@ const RestanFooter = ({ accentColor = '#A0845F' }) => {
           </div>
         </div>
 
-<div className="w-full bg-[#0e0e0e] py-8">
+<div className="hidden sm:block w-full bg-[#0e0e0e] py-8">
               <div className="max-w-[1200px] h-[150px] mx-auto px-4 md:px-6 flex justify-between items-center">
 
             <div className="flex items-center space-x-4">

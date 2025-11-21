@@ -68,7 +68,7 @@ const RestanHeader = ({ accentColor = '#A0845F' }) => {
   const TopCtaBar = ({ accentColor, isScrolled }) => (
     
     <div
-  className={`py-3 text-white text-sm ${isScrolled ? 'hidden' : 'block'}`}
+  className={` hidden sm:block py-3 text-white text-sm ${isScrolled ? 'hidden' : 'block'}`}
   style={{ backgroundColor: '#8B735C' }}
     >
        
