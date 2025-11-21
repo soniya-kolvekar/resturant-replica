@@ -103,12 +103,32 @@ const Navbar = ({ isSticky }) => {
                   </Link>
                   </div>
                   </div>
-            <a
-              href="/order"
-              className="font-medium text-base text-white dark:text-gray-300 hover:text-[#A0845F] transition duration-300"
-            >
-              Shop <span className="text-sm">˅</span>
-            </a>
+
+
+                   <div className="relative group">
+                <Link
+                  href="/order"
+                  className="text-white dark:text-gray-300 font-medium text-base hover:text-[#A0845F] transition"
+                >
+                  Shop <span className="text-sm">˅</span>
+                </Link>
+
+                <div
+                  className="absolute left-0 top-8 opacity-0 group-hover:opacity-100 group-hover:visible invisible 
+                             bg-white dark:bg-gray-800 text-gray-900 dark:text-white shadow-xl rounded-lg w-48 py-2 
+                             transition-all duration-300 ease-in-out delay-150"
+                >
+                  <Link href="/order" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700">
+                    Shop
+                  </Link>
+                  <Link href="/shop-single" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700">
+                    Shop Single
+                  </Link>
+                  </div>
+                  </div>
+            
+
+
             <a
               href="/contactus"
               className="font-medium text-base text-white dark:text-gray-300 hover:text-[#A0845F] transition duration-300"

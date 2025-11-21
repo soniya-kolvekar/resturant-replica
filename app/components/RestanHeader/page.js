@@ -190,9 +190,27 @@ const RestanHeader = ({ accentColor = '#A0845F' }) => {
             </div>
         </div>
 
-        <Link href="/order" className={`${linkClass} ${textColorClass}`}>
-            Shop <span className="text-sm">˅</span>
-        </Link>
+        <div className="relative group">
+                <Link
+                  href="/order"
+                  className={`${linkClass} ${textColorClass}`}
+                >
+                  Shop <span className="text-sm">˅</span>
+                </Link>
+
+                <div
+                  className="absolute left-0 top-8 opacity-0 invisible group-hover:opacity-100 group-hover:visible
+                bg-white dark:bg-gray-800 text-gray-900 dark:text-white shadow-xl rounded-lg w-48 py-2
+                transition-all duration-300 ease-in-out"
+                >
+                  <Link href="/order" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700">
+                    Shop
+                  </Link>
+                  <Link href="/shop-single" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700">
+                    Shop Single
+                  </Link>
+                  </div>
+                  </div>
 
         
     </nav>
