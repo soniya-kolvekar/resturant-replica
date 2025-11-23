@@ -296,7 +296,7 @@ const AddToCartModal = ({ dishName, accentColor, closeModal }) => (
                 Item Added!
             </h3>
             <p className="text-gray-600 dark:text-gray-400 mb-6">
-                **{dishName}** has been successfully added to your cart.
+                {dishName} has been successfully added to your cart.
             </p>
             <button
                 onClick={closeModal}
@@ -635,8 +635,7 @@ export default function RestanBistroLanding() {
 
                  </div>
             </div>
-            
-            
+             
          <div
   className="relative hidden md:block w-[1350px] mx-[90px] py-30 lg:py-25 transition-colors duration-500 rounded-[30px] overflow-hidden"
   style={{

@@ -72,7 +72,7 @@ const ContactUsPage = () => {
                     Keep In Touch
                     </p>
                     <h2 className="font-['Cormorant Garamond'] text-4xl md:text-5xl font-extrabold text-gray-900 dark:text-white mb-12">
-                    Send us a Massage
+                    Send us a Message
                     </h2>
 
                     <form className="bg-[#fafafa] dark:bg-[#1b1b1b] rounded-2xl shadow-xl p-10 space-y-6">
