@@ -1,166 +1,172 @@
-🍽️ Resturant — Modern Restaurant Website (Next.js + Tailwind CSS + Firebase Auth)
+# **🍽️ Restan Bistro – Modern Restaurant Website (Next.js + Firebase)**
 
-A fully responsive, dark-mode friendly restaurant website built using Next.js 14 App Router, Tailwind CSS, and Firebase Authentication.
-This project replicates the elegant UI of premium restaurant templates, focusing on pixel-perfect design, mobile responsiveness, and clean component architecture.
+A premium, elegant restaurant website built using Next.js 14, Tailwind CSS, and Firebase Authentication.
+The project features beautiful UI sections, smooth animations, reusable components, and clean folder architecture.
 
-⚡ Note: Navigation is not used on the landing page intentionally to keep the hero section immersive.
-Navigation appears normally across all inner pages such as Menu, Blog, About Us, Contact, etc.
+This project is designed to showcase a high-end restaurant brand with pages like Menu, Blog, Chef Profiles, Shop, Contact, and more — all wrapped in a polished UI.
 
-🚀 Features at a Glance
-🎨 Design & UI
+## 🚀 Live Features
 
-Fully responsive (Mobile, Tablet, Desktop)
+1. Authentication System<br>
+2.Email/Password Signup<br>
+3.Login System (Firebase Auth)<br>
+4.Reset Password<br>
+5.Email Verification<br>
+6.Redirect flow: Sign Up → Sign In → Landing Page (future plan)
 
-Dark mode compatible across all pages
+## 🧩 Reusable UI Components
 
-Premium restaurant-style animations & layout
+1.Hero Section<br>
+2.Responsive Navigation (Desktop + Mobile)<br>
+3.Footer<br>
+4.Chef Cards<br>
+5.Menu Cards<br>
+6.Blog Cards<br>
+7.Auto-hydrating components with SafeHydrate
 
-Central logo with split navigation (Desktop)
+## 🌙 Dark Mode Compatibility
 
-Sticky navbar behavior with scroll detection
+The entire site supports clean dark/light mode transitions (based on OS theme).
 
-Clean mobile hamburger navigation
+## 🎨 Premium Aesthetic UI
 
-🔐 Firebase Authentication
+A classy fine-dining theme, soft gold accents, elegant typography, and balanced spacing.
 
-User Sign Up (with email verification)
+## 📁 Folder Structure
 
-User Login
+⚠️ Completely GitHub-safe.
+Just copy–paste — formatting stays perfect.
 
-Password reset
-
-Firebase-powered auth utilities (create, login, logout, reset)
-
-Seamless redirect flows
-
-Clean UI matching the restaurant theme
-
-🧩 Component-Based Structure
-
-Reusable components:
-
-Navbar
-
-RestanHeader
-
-RestanFooter
-
-BlogCard, ChefCard, MenuCard
-
-Video
-
-SafeHydrate for SSR hydration fixes
-
-📂 Project Structure
 resturant/
+
 │
+
 ├── app/
+
 │   ├── aboutus/
+
 │   ├── blog/
+
 │   ├── blog2/
+
 │   ├── chef/
+
+│   │
 │   ├── components/
+
 │   │   ├── BlogCard/
+
 │   │   ├── chefcards/
+
 │   │   ├── MenuCard/
+
 │   │   ├── Navbar/
+
 │   │   ├── RestanFooter/
+
 │   │   ├── RestanHeader/
+
 │   │   ├── SafeHydrate/
+
 │   │   └── Video/
+
 │   │
+
 │   ├── contactus/
+
 │   ├── core/
+
 │   │   ├── firebase.js
+
 │   │   └── auth.js
+
 │   │
+
 │   ├── login/
+
 │   ├── SignIn/
+
 │   ├── menu/
+
 │   ├── order/
+
 │   ├── shop-single/
+
 │   │
+
 │   ├── favicon.ico
+
 │   ├── globals.css
+
 │   ├── layout.js
-│   └── page.js (Landing page)
+
+│   └── page.js     ← Landing Page (navbar intentionally hidden)
+
 │
+
 ├── public/
+
+│
+
 ├── .env.local
+
 ├── next.config.mjs
+
 ├── package.json
+
 └── README.md
 
-🔥 Tech Stack
-Category	Technologies
-Frontend	Next.js 14 (App Router), React, Tailwind CSS
-Backend	Firebase Authentication, Firebase Firestore
-Styling	Tailwind CSS, Custom Components
-Utilities	SafeHydrate, Responsive Layouts
-Deployment Ready	✔ Vercel compatible
-🛠️ Firebase Setup
+## 🛠️ Tech Stack
 
-Create a .env.local with:
+1.Technology	Purpose<br>
+2.Next.js 14	Routing, SSR, app directory<br>
+3.React 18	Core UI<br>
+4.Tailwind CSS	Styling<br>
+5.Firebase Authentication	Sign-up, Login, Reset Password<br>
+6.Firestore (optional)	Future support for reservations, orders<br>
+6 Vercel Deployment
 
-NEXT_PUBLIC_FIREBASE_API_KEY=xxxx
-NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=xxxx
-NEXT_PUBLIC_FIREBASE_PROJECT_ID=xxxx
-NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET=xxxx
-NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=xxxx
+## ⚙️ Environment Setup
+
+Create a file:
+
+.env.local<br>
+NEXT_PUBLIC_FIREBASE_API_KEY=xxxx<br>
+NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=xxxx<br>
+NEXT_PUBLIC_FIREBASE_PROJECT_ID=xxxx<br>
+NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET=xxxx<br>
+NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=xxxx<br>
 NEXT_PUBLIC_FIREBASE_APP_ID=xxxx
 
+▶️ Installation & Running Locally
 
-All Firebase logic lives inside:
-
-app/core/firebase.js
-app/core/auth.js
-
-📱 Pages Included
-Page	Description
-/	Landing page (UI-focused without navbar)
-/aboutus	Restaurant story, values & history
-/chef	Chef showcase section
-/menu	Full food & beverage menu
-/blog	Articles & food posts
-/blog2	Single blog view
-/order	Shop section
-/shop-single	Single product view
-/contactus	Contact & address
-/login	Create account page
-/SignIn	Sign in page
-🎯 Project Goals
-
-Recreate a premium restaurant template with precision
-
-Deliver world-class mobile responsiveness
-
-Maintain clean component hierarchies
-
-Integrate Firebase auth without complicating UI
-
-Ensure dark mode works beautifully everywhere
-
-🧪 How to Run Locally
+1️⃣ Install dependencies
 npm install
+
+2️⃣ Run the dev server
 npm run dev
 
+3️⃣ Open in browser
+http://localhost:3000/
 
-Visit:
-👉 http://localhost:3000
+## 🧑‍🍳 About This Project
 
-🌟 Future Enhancements
+This web app is built as a fully dynamic and extendable restaurant website.
+The codebase is structured to be:
 
-User dashboard after login
+✔ Clean<br>
+✔ Scalable<br>
+✔ Component-driven<br>
+✔ Developer-friendly<br>
 
-Firebase Firestore menu management
+It can be extended to include:
 
-Cart & checkout
+1.Table reservations<br>
+2.Food ordering<br>
+3.Admin dashboard<br>
+4.Inventory management<br>
+5.Multi-language support<br>
 
-Admin panel for blog + menu items
+## ⭐ If you like this project…
 
-Animations for scrolling sections
-
-💬 Feedback & Contributions
-
-Feel free to open issues, suggest UI improvements, or help scale the project.
-This repo is actively evolving, and contributions are welcome!
+Give the repository a star ⭐ to support the work!
