@@ -5,6 +5,8 @@ The project features beautiful UI sections, smooth animations, reusable componen
 
 This project is designed to showcase a high-end restaurant brand with pages like Menu, Blog, Chef Profiles, Shop, Contact, and more — all wrapped in a polished UI.
 
+### Vercel Deployment Link: https://resturant-replica.vercel.app/
+
 ## 🚀 Live Features
 
 1. Authentication System<br>
