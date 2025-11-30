@@ -1,36 +1,166 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+🍽️ Resturant — Modern Restaurant Website (Next.js + Tailwind CSS + Firebase Auth)
 
-## Getting Started
+A fully responsive, dark-mode friendly restaurant website built using Next.js 14 App Router, Tailwind CSS, and Firebase Authentication.
+This project replicates the elegant UI of premium restaurant templates, focusing on pixel-perfect design, mobile responsiveness, and clean component architecture.
 
-First, run the development server:
+⚡ Note: Navigation is not used on the landing page intentionally to keep the hero section immersive.
+Navigation appears normally across all inner pages such as Menu, Blog, About Us, Contact, etc.
 
-```bash
+🚀 Features at a Glance
+🎨 Design & UI
+
+Fully responsive (Mobile, Tablet, Desktop)
+
+Dark mode compatible across all pages
+
+Premium restaurant-style animations & layout
+
+Central logo with split navigation (Desktop)
+
+Sticky navbar behavior with scroll detection
+
+Clean mobile hamburger navigation
+
+🔐 Firebase Authentication
+
+User Sign Up (with email verification)
+
+User Login
+
+Password reset
+
+Firebase-powered auth utilities (create, login, logout, reset)
+
+Seamless redirect flows
+
+Clean UI matching the restaurant theme
+
+🧩 Component-Based Structure
+
+Reusable components:
+
+Navbar
+
+RestanHeader
+
+RestanFooter
+
+BlogCard, ChefCard, MenuCard
+
+Video
+
+SafeHydrate for SSR hydration fixes
+
+📂 Project Structure
+resturant/
+│
+├── app/
+│   ├── aboutus/
+│   ├── blog/
+│   ├── blog2/
+│   ├── chef/
+│   ├── components/
+│   │   ├── BlogCard/
+│   │   ├── chefcards/
+│   │   ├── MenuCard/
+│   │   ├── Navbar/
+│   │   ├── RestanFooter/
+│   │   ├── RestanHeader/
+│   │   ├── SafeHydrate/
+│   │   └── Video/
+│   │
+│   ├── contactus/
+│   ├── core/
+│   │   ├── firebase.js
+│   │   └── auth.js
+│   │
+│   ├── login/
+│   ├── SignIn/
+│   ├── menu/
+│   ├── order/
+│   ├── shop-single/
+│   │
+│   ├── favicon.ico
+│   ├── globals.css
+│   ├── layout.js
+│   └── page.js (Landing page)
+│
+├── public/
+├── .env.local
+├── next.config.mjs
+├── package.json
+└── README.md
+
+🔥 Tech Stack
+Category	Technologies
+Frontend	Next.js 14 (App Router), React, Tailwind CSS
+Backend	Firebase Authentication, Firebase Firestore
+Styling	Tailwind CSS, Custom Components
+Utilities	SafeHydrate, Responsive Layouts
+Deployment Ready	✔ Vercel compatible
+🛠️ Firebase Setup
+
+Create a .env.local with:
+
+NEXT_PUBLIC_FIREBASE_API_KEY=xxxx
+NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=xxxx
+NEXT_PUBLIC_FIREBASE_PROJECT_ID=xxxx
+NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET=xxxx
+NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=xxxx
+NEXT_PUBLIC_FIREBASE_APP_ID=xxxx
+
+
+All Firebase logic lives inside:
+
+app/core/firebase.js
+app/core/auth.js
+
+📱 Pages Included
+Page	Description
+/	Landing page (UI-focused without navbar)
+/aboutus	Restaurant story, values & history
+/chef	Chef showcase section
+/menu	Full food & beverage menu
+/blog	Articles & food posts
+/blog2	Single blog view
+/order	Shop section
+/shop-single	Single product view
+/contactus	Contact & address
+/login	Create account page
+/SignIn	Sign in page
+🎯 Project Goals
+
+Recreate a premium restaurant template with precision
+
+Deliver world-class mobile responsiveness
+
+Maintain clean component hierarchies
+
+Integrate Firebase auth without complicating UI
+
+Ensure dark mode works beautifully everywhere
+
+🧪 How to Run Locally
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+Visit:
+👉 http://localhost:3000
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+🌟 Future Enhancements
 
-## Learn More
+User dashboard after login
 
-To learn more about Next.js, take a look at the following resources:
+Firebase Firestore menu management
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Cart & checkout
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Admin panel for blog + menu items
 
-## Deploy on Vercel
+Animations for scrolling sections
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+💬 Feedback & Contributions
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Feel free to open issues, suggest UI improvements, or help scale the project.
+This repo is actively evolving, and contributions are welcome!
